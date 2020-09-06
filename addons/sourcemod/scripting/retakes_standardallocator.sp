@@ -356,6 +356,8 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
     bool isScout = GetRandomInt(0, 40) == 1;
 
     for (int i = 0; i < tCount; i++) {
+
+        // Lari 06-09-2020 - Added random fun rounds
         if (isRandomShotgunRound || isScout || isRandomBurstRound) {
           int client = GetArrayCell(tPlayers, i);
           PrintToChat(client, "SPECIAL GUN ROUND!!!!");
@@ -482,6 +484,7 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
     int[] treatedCT = new int[ctCount];
     for (int i = 0; i < ctCount; i++) {
 
+        // Lari 06-09-2020 - Added random fun rounds
         if (isRandomShotgunRound || isScout || isRandomBurstRound) {
           int client = GetArrayCell(ctPlayers, i);
           PrintToChat(client, "SPECIAL GUN ROUND!!!!");
