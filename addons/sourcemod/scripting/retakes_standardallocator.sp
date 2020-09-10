@@ -351,14 +351,17 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
     int[] treatedT = new int[tCount];
 
     bool isRandomShotgunRound = GetRandomInt(0, 40) == 1;
-    bool isRandomBurstRound = GetRandomInt(0, 400) == 1;
+    bool isRandomBurstRound = GetRandomInt(0, 80) == 1;
+    bool isRandomEliteRound = GetRandomInt(0, 100) == 1;
     bool isSwag7 = GetRandomInt(0, 1) == 1;
     bool isScout = GetRandomInt(0, 40) == 1;
 
     for (int i = 0; i < tCount; i++) {
 
         // Lari 06-09-2020 - Added random fun rounds
-        if (isRandomShotgunRound || isScout || isRandomBurstRound) {
+        // Lari 10-09-2020 - Removed pistols from special rounds, made pistols it's own special round
+        if (isRandomShotgunRound || isScout || isRandomBurstRound || isRandomEliteRound) {
+          secondary = "";
           int client = GetArrayCell(tPlayers, i);
           PrintToChat(client, "SPECIAL GUN ROUND!!!!");
           if (isSwag7) 
@@ -372,7 +375,10 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
           if (isRandomBurstRound)
             primary = "weapon_negev";
 
-          Retakes_SetPlayerInfo(client, primary, "weapon_elite", nades, 100, 100, true, true);
+          if (isRandomEliteRound)
+            secondary = "weapon_elite";
+
+          Retakes_SetPlayerInfo(client, primary, secondary, nades, 100, 100, true, true);
           continue;
         }
 
@@ -485,7 +491,9 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
     for (int i = 0; i < ctCount; i++) {
 
         // Lari 06-09-2020 - Added random fun rounds
-        if (isRandomShotgunRound || isScout || isRandomBurstRound) {
+        // Lari 10-09-2020 - Removed pistols from special rounds, made pistols it's own special round
+        if (isRandomShotgunRound || isScout || isRandomBurstRound || isRandomEliteRound) {
+          secondary = "";
           int client = GetArrayCell(ctPlayers, i);
           PrintToChat(client, "SPECIAL GUN ROUND!!!!");
           if (isSwag7) 
@@ -499,7 +507,10 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
           if (isRandomBurstRound)
             primary = "weapon_negev";
 
-          Retakes_SetPlayerInfo(client, primary, "weapon_elite", nades, 100, 100, true, true);
+          if (isRandomEliteRound)
+            secondary = "weapon_elite";
+
+          Retakes_SetPlayerInfo(client, primary, secondary, nades, 100, 100, true, true);
           continue;
         }
 
