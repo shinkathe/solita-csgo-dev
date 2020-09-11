@@ -15,10 +15,12 @@ const int rifle_choice_ct_famas = 1;
 const int rifle_choice_ct_m4a4 = 2;
 const int rifle_choice_ct_m4a1_s = 3;
 const int rifle_choice_ct_aug = 4;
+const int rifle_choice_ct_shotgun = 5;
 
 const int rifle_choice_t_galil = 1;
 const int rifle_choice_t_ak47 = 2;
 const int rifle_choice_t_sg553 = 3;
+const int rifle_choice_t_shotgun = 4;
 
 const int pistol_choice_ct_hkp2000 = 1;
 const int pistol_choice_ct_usp = 7;
@@ -430,6 +432,8 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
                         primary = "weapon_galilar";
                     case rifle_choice_t_sg553:
                         primary = "weapon_sg556";
+                    case rifle_choice_t_shotgun:
+                        primary = "weapon_xm1014";
                 }
             }
         }
@@ -564,6 +568,8 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
                         primary = "weapon_m4a1_silencer";
                     case rifle_choice_ct_aug:
                         primary = "weapon_aug";
+                    case rifle_choice_ct_shotgun:
+                        primary = "weapon_xm1014";
                 }
             }
         }
@@ -792,6 +798,7 @@ public void GiveWeaponMenuCT(int client) {
     AddMenuInt(menu, rifle_choice_ct_m4a4, "M4A4");
     AddMenuInt(menu, rifle_choice_ct_m4a1_s, "M4A1-S");
     AddMenuInt(menu, rifle_choice_ct_aug, "Aug");
+    AddMenuInt(menu, rifle_choice_ct_shotgun, "XM1014");
     DisplayMenu(menu, client, MENU_TIME_LENGTH);
 }
 
@@ -801,6 +808,7 @@ public void GiveWeaponMenuT(int client) {
     AddMenuInt(menu, rifle_choice_t_galil, "Galil");
     AddMenuInt(menu, rifle_choice_t_ak47, "AK47");
     AddMenuInt(menu, rifle_choice_t_sg553, "SG553");
+    AddMenuInt(menu, rifle_choice_t_shotgun, "XM1014");
     DisplayMenu(menu, client, MENU_TIME_LENGTH);
 }
 
