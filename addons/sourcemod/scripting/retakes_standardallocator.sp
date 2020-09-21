@@ -352,11 +352,11 @@ public void WeaponAllocator(ArrayList tPlayers, ArrayList ctPlayers, Bombsite bo
     int awp_given = 0;
     int[] treatedT = new int[tCount];
 
-    bool isRandomShotgunRound = GetRandomInt(0, 40) == 1;
-    bool isRandomBurstRound = GetRandomInt(0, 80) == 1;
-    bool isRandomEliteRound = GetRandomInt(0, 100) == 1;
+    bool isRandomShotgunRound = GetRandomInt(0, 200) == 1;
+    bool isRandomBurstRound = GetRandomInt(0, 400) == 1;
+    bool isRandomEliteRound = GetRandomInt(0, 800) == 1;
     bool isSwag7 = GetRandomInt(0, 1) == 1;
-    bool isScout = GetRandomInt(0, 40) == 1;
+    bool isScout = GetRandomInt(0, 100) == 1;
 
     for (int i = 0; i < tCount; i++) {
 
